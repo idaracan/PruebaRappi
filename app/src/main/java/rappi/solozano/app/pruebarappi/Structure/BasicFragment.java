@@ -62,6 +62,7 @@ public class BasicFragment extends Fragment {
                 break;
         }
 
+
     }
 
     @Override
