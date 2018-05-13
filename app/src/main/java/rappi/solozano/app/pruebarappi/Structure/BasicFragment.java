@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import rappi.solozano.app.pruebarappi.Constants;
 import rappi.solozano.app.pruebarappi.MainActivity;
 import rappi.solozano.app.pruebarappi.R;
 
@@ -62,6 +63,7 @@ public class BasicFragment extends Fragment {
                 break;
         }
 
+
     }
 
     @Override
@@ -98,15 +100,15 @@ public class BasicFragment extends Fragment {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         switch (option){
             case 0:
-                adapter.addFragment(IFragment.getInstace(0));
-                adapter.addFragment(IFragment.getInstace(1));
-                adapter.addFragment(IFragment.getInstace(2));
+                adapter.addFragment(IFragment.getInstace(Constants.popularMoviesNum));
+                adapter.addFragment(IFragment.getInstace(Constants.topRatedMoviesNum));
+                adapter.addFragment(IFragment.getInstace(Constants.upcomingMoviesNum));
                 vp.setAdapter(adapter);
                 break;
             case 1:
-                adapter.addFragment(IFragment.getInstace(3));
-                adapter.addFragment(IFragment.getInstace(4));
-                adapter.addFragment(IFragment.getInstace(5));
+                adapter.addFragment(IFragment.getInstace(Constants.popularShowsNum));
+                adapter.addFragment(IFragment.getInstace(Constants.topRatedShowsNum));
+                adapter.addFragment(IFragment.getInstace(Constants.upcomingShowsNum));
                 vp.setAdapter(adapter);
                 break;
         }
@@ -149,7 +151,6 @@ public class BasicFragment extends Fragment {
                 Log.d("page", "onPageSelected: "+position);
                 bottomNavigationView.getMenu().getItem(position).setChecked(false);
                 prevMenuItem = bottomNavigationView.getMenu().getItem(position);
-
             }
 
             @Override
