@@ -69,7 +69,10 @@ public class IFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getData(view);
+    }
 
+    private void getData(@NonNull View view) {
         final TextView movieInfo = view.findViewById(R.id.movie_info);
         VolleyUtils.makeJsonObjectRequest(getContext(), url, new VolleyResponseListener() {
             @Override
@@ -79,10 +82,11 @@ public class IFragment extends Fragment {
 
             @Override
             public void onResponse(Object response) {
+                Log.i("url", url);
+                Log.i("number", String.valueOf(option));
                 movieInfo.setText(response.toString());
             }
         });
-
     }
 
 
