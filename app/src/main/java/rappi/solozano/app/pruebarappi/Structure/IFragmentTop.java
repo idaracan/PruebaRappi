@@ -30,8 +30,8 @@ public class IFragmentTop extends Fragment {
         return fragment;
     }
 
-    public static IFragmentPopular getShows() {
-        IFragmentPopular fragment = new IFragmentPopular();
+    public static IFragmentTop getShows() {
+        IFragmentTop fragment = new IFragmentTop();
         url = Constants.topRatedShows;
         Log.i("estoShow", url);
         return fragment;
