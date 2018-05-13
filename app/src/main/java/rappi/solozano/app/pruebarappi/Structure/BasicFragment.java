@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import rappi.solozano.app.pruebarappi.Constants;
 import rappi.solozano.app.pruebarappi.MainActivity;
 import rappi.solozano.app.pruebarappi.R;
 
@@ -43,7 +42,7 @@ public class BasicFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewPager = view.findViewById(R.id.viewPager);
         bottomNavigationView = view.findViewById(R.id.bottonNavigation);
@@ -67,7 +66,7 @@ public class BasicFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_basic, container, false);
     }
@@ -100,15 +99,15 @@ public class BasicFragment extends Fragment {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         switch (option){
             case 0:
-                adapter.addFragment(IFragment.getInstace(Constants.popularMoviesNum));
-                adapter.addFragment(IFragment.getInstace(Constants.topRatedMoviesNum));
-                adapter.addFragment(IFragment.getInstace(Constants.upcomingMoviesNum));
+                adapter.addFragment(IFragmentPopular.getMovie());
+                adapter.addFragment(IFragmentTop.getMovie());
+                adapter.addFragment(IFragmentUpComing.getMovie());
                 vp.setAdapter(adapter);
                 break;
             case 1:
-                adapter.addFragment(IFragment.getInstace(Constants.popularShowsNum));
-                adapter.addFragment(IFragment.getInstace(Constants.topRatedShowsNum));
-                adapter.addFragment(IFragment.getInstace(Constants.upcomingShowsNum));
+                adapter.addFragment(IFragmentPopular.getShows());
+                adapter.addFragment(IFragmentTop.getShows());
+                adapter.addFragment(IFragmentUpComing.getShows());
                 vp.setAdapter(adapter);
                 break;
         }
