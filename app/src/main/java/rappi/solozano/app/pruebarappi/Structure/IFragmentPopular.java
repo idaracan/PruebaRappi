@@ -1,6 +1,7 @@
 package rappi.solozano.app.pruebarappi.Structure;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -11,19 +12,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import rappi.solozano.app.pruebarappi.Constants;
+import rappi.solozano.app.pruebarappi.Controller.ExtrasController;
+import rappi.solozano.app.pruebarappi.Controller.MovieController;
+import rappi.solozano.app.pruebarappi.Model.Constants;
 import rappi.solozano.app.pruebarappi.Network.VolleyResponseListener;
 import rappi.solozano.app.pruebarappi.Network.VolleyUtils;
 import rappi.solozano.app.pruebarappi.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class IFragmentPopular extends Fragment {
 
     static String url, genre;
 
+    Context context;
+    public static ExtrasController extra = new ExtrasController();
     public IFragmentPopular() {
+
         // Required empty public constructor
     }
 
@@ -33,6 +36,11 @@ public class IFragmentPopular extends Fragment {
         Log.i("estoMovie", url);
         genre = Constants.genersMovie;
         Log.i("estoMovieGenre", genre);
+        Log.i("estoLanguage", Constants.getLanguages);
+        extra.getLanguage(Constants.getLanguages, context);
+        extra.getCountries(Constants.getCountry, getActivity());
+        extra.getGenre(Constants.genersMovie, getActivity());
+        extra.getGenre(Constants.genersTV, getActivity());
         return fragment;
     }
 
@@ -42,6 +50,7 @@ public class IFragmentPopular extends Fragment {
         Log.i("estoShow", url);
         genre = Constants.genersTV;
         Log.i("estoShowGenre", genre);
+        Log.i("estoShowCountry", Constants.getCountry);
         return fragment;
     }
 
@@ -59,6 +68,8 @@ public class IFragmentPopular extends Fragment {
 
             @Override
             public void onResponse(Object response) {
+                MovieController movieController = new MovieController();
+                movieController.parseJson(response.toString());
                 movieInfo.setText(response.toString());
             }
         });

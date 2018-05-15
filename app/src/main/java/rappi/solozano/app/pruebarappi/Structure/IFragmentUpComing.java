@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import rappi.solozano.app.pruebarappi.Constants;
+import rappi.solozano.app.pruebarappi.Model.Constants;
 import rappi.solozano.app.pruebarappi.Network.VolleyResponseListener;
 import rappi.solozano.app.pruebarappi.Network.VolleyUtils;
 import rappi.solozano.app.pruebarappi.R;
