@@ -21,7 +21,7 @@ import rappi.solozano.app.pruebarappi.R;
  */
 public class IFragmentPopular extends Fragment {
 
-    static String url;
+    static String url, genre;
 
     public IFragmentPopular() {
         // Required empty public constructor
@@ -31,6 +31,8 @@ public class IFragmentPopular extends Fragment {
         IFragmentPopular fragment = new IFragmentPopular();
         url = Constants.popularMovies;
         Log.i("estoMovie", url);
+        genre = Constants.genersMovie;
+        Log.i("estoMovieGenre", genre);
         return fragment;
     }
 
@@ -38,6 +40,8 @@ public class IFragmentPopular extends Fragment {
         IFragmentPopular fragment = new IFragmentPopular();
         url = Constants.popularShows;
         Log.i("estoShow", url);
+        genre = Constants.genersTV;
+        Log.i("estoShowGenre", genre);
         return fragment;
     }
 

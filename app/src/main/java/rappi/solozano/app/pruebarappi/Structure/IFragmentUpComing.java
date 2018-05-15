@@ -21,12 +21,14 @@ import rappi.solozano.app.pruebarappi.R;
  */
 public class IFragmentUpComing extends Fragment {
 
-    static String url;
+    static String url, genre;
 
     public static IFragmentUpComing getMovie() {
         IFragmentUpComing fragment = new IFragmentUpComing();
         url = Constants.upcomingMovies;
         Log.i("estoMovie", url);
+        genre = Constants.genersMovie;
+        Log.i("estoMovieGenre", genre);
         return fragment;
     }
 
@@ -34,6 +36,8 @@ public class IFragmentUpComing extends Fragment {
         IFragmentUpComing fragment = new IFragmentUpComing();
         url = Constants.upcomingShows;
         Log.i("estoShow", url);
+        genre = Constants.genersTV;
+        Log.i("estoShowGenre", genre);
         return fragment;
     }
 
