@@ -11,22 +11,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import rappi.solozano.app.pruebarappi.Constants;
+import rappi.solozano.app.pruebarappi.Model.Constants;
 import rappi.solozano.app.pruebarappi.Network.VolleyResponseListener;
 import rappi.solozano.app.pruebarappi.Network.VolleyUtils;
 import rappi.solozano.app.pruebarappi.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class IFragmentTop extends Fragment {
 
-    static String url;
+    static String url, genre;
 
     public static IFragmentTop getMovie() {
         IFragmentTop fragment = new IFragmentTop();
         url = Constants.topRatedMovies;
+        genre = Constants.genersMovie;
+        Log.i("estoMovieGenre", genre);
         Log.i("estoMovie", url);
+
         return fragment;
     }
 
@@ -34,6 +34,8 @@ public class IFragmentTop extends Fragment {
         IFragmentTop fragment = new IFragmentTop();
         url = Constants.topRatedShows;
         Log.i("estoShow", url);
+        genre = Constants.genersTV;
+        Log.i("estoShowGenre", genre);
         return fragment;
     }
 

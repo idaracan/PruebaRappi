@@ -95,7 +95,7 @@ public class BasicFragment extends Fragment {
         }
     }
 
-    public void createAdapter (ViewPager vp, int option, Activity activity){
+    public void createAdapter (ViewPager vp, int option){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         switch (option){
             case 0:
