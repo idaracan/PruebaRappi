@@ -1,6 +1,7 @@
 package rappi.solozano.app.pruebarappi.Structure;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -30,17 +31,18 @@ public class IFragmentPopular extends Fragment {
         // Required empty public constructor
     }
 
-    public IFragmentPopular getMovie() {
+    public static IFragmentPopular getMovie(View view) {
         IFragmentPopular fragment = new IFragmentPopular();
         url = Constants.popularMovies;
         Log.i("estoMovie", url);
         genre = Constants.genersMovie;
         Log.i("estoMovieGenre", genre);
         Log.i("estoLanguage", Constants.getLanguages);
-        extra.getLanguage(Constants.getLanguages, getActivity());
-        extra.getCountries(Constants.getCountry, getActivity());
-        extra.getGenre(Constants.genersMovie, getActivity());
-        extra.getGenre(Constants.genersTV, getActivity());
+        Activity activity = (Activity)view.getContext();
+        extra.getLanguage(Constants.getLanguages, activity);
+        extra.getCountries(Constants.getCountry, activity);
+        extra.getGenre(Constants.genersMovie, activity);
+        extra.getGenre(Constants.genersTV, activity);
         return fragment;
     }
 

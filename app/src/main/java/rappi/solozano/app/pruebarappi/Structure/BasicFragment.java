@@ -51,12 +51,12 @@ public class BasicFragment extends Fragment {
 
         switch(option){
             case 0:
-                createAdapter(viewPager, option, getActivity());
+                createAdapter(viewPager, option);
                 updateBottonNavigation();
                 updateViewPage();
                 break;
             case 1:
-                createAdapter(viewPager, option, getActivity());
+                createAdapter(viewPager, option);
                 updateBottonNavigation();
                 updateViewPage();
                 break;
@@ -99,7 +99,7 @@ public class BasicFragment extends Fragment {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         switch (option){
             case 0:
-                adapter.addFragment(IFragmentPopular.getMovie());
+                adapter.addFragment(IFragmentPopular.getMovie(getView()));
                 adapter.addFragment(IFragmentTop.getMovie());
                 adapter.addFragment(IFragmentUpComing.getMovie());
                 vp.setAdapter(adapter);
